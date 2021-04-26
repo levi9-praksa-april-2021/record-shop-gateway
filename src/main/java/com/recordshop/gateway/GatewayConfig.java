@@ -17,7 +17,7 @@ public class GatewayConfig {
                         .uri("lb://RECORD-SHOP-CATALOG"))
                 .route(r -> r.path("/genres/**")
                         .uri("lb://RECORD-SHOP-CATALOG"))
-                .route(r -> r.path("/cart/**")
+                .route(r -> r.path("/orders/**")
                     .uri("lb://RECORD-SHOP-CART"))
                 .route(r -> r.path("/users/**")
                     .uri("lb://RECORD-SHOP-AUTH"))
