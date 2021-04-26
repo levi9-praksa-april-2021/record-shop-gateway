@@ -13,8 +13,16 @@ public class GatewayConfig {
         return builder.routes()
                 .route(r -> r.path("/records/**")
                     .uri("lb://RECORD-SHOP-CATALOG"))
+                .route(r -> r.path("/artists/**")
+                        .uri("lb://RECORD-SHOP-CATALOG"))
+                .route(r -> r.path("/genres/**")
+                        .uri("lb://RECORD-SHOP-CATALOG"))
                 .route(r -> r.path("/cart/**")
                     .uri("lb://RECORD-SHOP-CART"))
+                .route(r -> r.path("/users/**")
+                    .uri("lb://RECORD-SHOP-AUTH"))
+                .route(r -> r.path("/oauth2/**")
+                    .uri("lb://RECORD-SHOP-AUTH"))
                 .build();
     }
 }
