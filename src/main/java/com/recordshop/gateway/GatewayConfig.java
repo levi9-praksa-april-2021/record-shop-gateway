@@ -12,17 +12,19 @@ public class GatewayConfig {
     public RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
                 .route(r -> r.path("/records/**")
-                    .uri("lb://RECORD-SHOP-CATALOG"))
+                    .uri("http://record-shop-catalog:8100"))
                 .route(r -> r.path("/artists/**")
-                        .uri("lb://RECORD-SHOP-CATALOG"))
+                        .uri("http://record-shop-catalog:8100"))
                 .route(r -> r.path("/genres/**")
-                        .uri("lb://RECORD-SHOP-CATALOG"))
+                        .uri("http://record-shop-catalog:8100"))
                 .route(r -> r.path("/orders/**")
-                    .uri("lb://RECORD-SHOP-CART"))
+                    .uri("http://record-shop-cart:8090"))
                 .route(r -> r.path("/users/**")
-                    .uri("lb://RECORD-SHOP-AUTH"))
+                    .uri("http://record-shop-auth:9000"))
                 .route(r -> r.path("/oauth2/**")
-                    .uri("lb://RECORD-SHOP-AUTH"))
+                    .uri("http://record-shop-auth:9000"))
+                .route(r -> r.path("/login")
+                    .uri("http://record-shop-auth:9000"))
                 .build();
     }
 }
